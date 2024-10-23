@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+    <style>
+        .book-card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 16px;
+            border-radius: 8px;
+            max-width: 300px;
+        }
+        .book-card img {
+            width: 100%;
+            height: auto;
+        }
+        .book-card h2, .book-card p {
+            margin: 0;
+            padding: 8px 0;
+        }
+        .background color{
+            green
+        }
+    </style>
+</head>
+<body>
+    <h1>Book List</h1>
+    <div id="book-list">
+        {% for book in data %}
+        <div class="book-card">
+            {% if book.image %}
+                <img src="{{ book.image.url }}" alt="{{ book.name }}">
+            {% else %}
+                <p>No Image Available</p>
+            {% endif %}
+            <h2>{{ book.name }}</h2>
+            <p>Author: {{ book.author }}</p>
+            <td><a href="/delete/{{book.id}}/" >Delete</a></td>
+            <td><a href="/update/{{book.id}}/" >Update</a></td>
+
+
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
