@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Records</title>
+    <style>
+        /* Your existing CSS styles here */
+
+        /* Additional style for the delete button */
+        .delete-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .edit-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Your other head content here -->
+</head>
+<body>
+    <h1>Employee Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Place</th>
+                <th>Joining Date</th>
+                <th>Actions</th> <!-- New column for delete button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in data.all %}
+                <tr>
+                    <td>{{ emp.id }}</td>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.place }}</td>
+                    <td>{{ emp.joining_date }}</td>
+                    <td><img src="{{emp.image.url}}" style="width:100px;height:80px;"/></td>
+                    <td><a href="/delete/{{emp.id}}/" >Delete</a></td>
+                    <td><a href="/update/{{emp.id}}/" >Update</a></td>
+                    <div>
+
+                    </div>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
